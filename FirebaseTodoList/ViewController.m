@@ -66,7 +66,6 @@
     
     NSLog(@"The user reference yo: %@", self.userReference);
     
-    
 }
 
 -(void)startMonitoringTodoUpdates {
@@ -83,6 +82,7 @@
             NSString *todoContent = todoData[@"content"];
             
             //for lab append new Todo to allTodos array
+            [allTodos addObject: child];
             
             
             NSLog(@" Todotitle: %@ - Content: %@", todoTitle, todoContent);
