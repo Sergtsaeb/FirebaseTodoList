@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 @import Firebase;
-@import FirebaseAuth;
-@import FirebaseDatabase;
+
 
 
 @interface AppDelegate ()
