@@ -33,7 +33,6 @@
     [super viewDidAppear:animated];
     
     [self checkUserStatus];
-    [self setupFirebase];
 }
 
 -(void)checkUserStatus {
@@ -44,6 +43,9 @@
         
         [self presentViewController:loginController animated:YES completion:nil];
         
+    } else {
+        [self setupFirebase];
+        [self startMonitoringTodoUpdates];
     }
     
 }
@@ -62,6 +64,25 @@
 
 -(void)startMonitoringTodoUpdates {
     
+    self.allTodosHandler = [[self.userReference child:@"todos"] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        
+        NSMutableArray *allTodos = [[NSMutableArray alloc] init];
+        
+        for (FIRDataSnapshot *child in snapshot.children) {
+            
+            NSDictionary *todoData = child.value;
+            
+            NSString *todoTitle = todoData[@"title"];
+            NSString *todoContent = todoData[@"content"];
+            
+            //for lab append new Todo to allTodos array
+            
+            
+            NSLog(@" Todotitle: %@ - Content: %@", todoTitle, todoContent);
+            
+        }
+        
+    }];
     
 }
 
