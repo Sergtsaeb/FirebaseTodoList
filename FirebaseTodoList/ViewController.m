@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "LoginViewController.h"
+#import "NewTodoViewController.h"
 
 @import FirebaseAuth;
 @import Firebase;
@@ -18,6 +19,9 @@
 @property(strong, nonatomic) FIRUser *currentuser;
 
 @property(nonatomic) FIRDatabaseHandle allTodosHandler;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
+
 
 @end
 
@@ -65,7 +69,6 @@
     self.userReference = [[databaseReference child:@"users"] child:self.currentuser.uid];
     
     NSLog(@"The user reference yo: %@", self.userReference);
-    
 }
 
 -(void)startMonitoringTodoUpdates {
@@ -84,14 +87,36 @@
             //for lab append new Todo to allTodos array
             [allTodos addObject: child];
             
-            
-            NSLog(@" Todotitle: %@ - Content: %@", todoTitle, todoContent);
-            
+            NSLog(@" TodoTtitle: %@ - Content: %@", todoTitle, todoContent);
         }
         
     }];
     
 }
+
+- (IBAction)logoutPressed:(id)sender {
+    NSError *signoutError;
+    [[FIRAuth auth] signOut: &signoutError];
+    
+    [self checkUserStatus];
+}
+
+- (IBAction)animateContainer:(id)sender {
+    [self.containerView layoutIfNeeded];
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        // Make all constraint changes here
+        
+        
+        self.heightConstraint = 0;
+        
+        [self.containerView layoutIfNeeded];
+        
+    }];
+    
+
+}
+
 
 
 @end

@@ -40,11 +40,31 @@
                             <constraint firstItem="ZX5-WA-GQp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oRD-dP-TBH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="TODO LIST" id="Q2Y-i9-eG8"/>
+                    <navigationItem key="navigationItem" title="TODO LIST" id="Q2Y-i9-eG8">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="kC1-nj-Y9p">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f34-8d-NST">
+                                <rect key="frame" x="16" y="10" width="46" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log O"/>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ufu-YR-6oH"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="8k1-XC-LKo">
+                            <connections>
+                                <action selector="animateContainer:" destination="BYZ-38-t0r" id="so7-pE-up1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="containerView" destination="ZX5-WA-GQp" id="aNX-9E-e71"/>
+                        <outlet property="heightConstraint" destination="vuT-RN-LuZ" id="cCN-1F-bNy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="780" y="79"/>
+            <point key="canvasLocation" x="780" y="78.710644677661179"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="eGh-iD-lfH">
