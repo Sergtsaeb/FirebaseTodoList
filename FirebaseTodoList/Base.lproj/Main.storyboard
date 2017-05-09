@@ -36,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="211" width="375" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="4Sw-Gs-gj4" detailTextLabel="X99-Kk-oqZ" style="IBUITableViewCellStyleSubtitle" id="CMi-bd-y9T">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="4Sw-Gs-gj4" detailTextLabel="X99-Kk-oqZ" style="IBUITableViewCellStyleSubtitle" id="CMi-bd-y9T">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMi-bd-y9T" id="Bz1-OZ-pcV">
