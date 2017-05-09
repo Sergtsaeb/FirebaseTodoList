@@ -9,9 +9,14 @@
 #import "ViewController.h"
 #import "LoginViewController.h"
 #import "NewTodoViewController.h"
+#import "Todo.h"
+#import "TodoCell.h"
 
 @import FirebaseAuth;
 @import Firebase;
+
+static CGFloat const kClosedConstraint = 0.0;
+static CGFloat const kOpenConstraint = 150.0;
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -35,6 +40,8 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    self.heightConstraint.constant = 0;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -53,7 +60,6 @@
 -(void)checkUserStatus {
     
     if (![[FIRAuth auth] currentUser]) {
-        
         LoginViewController *loginController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         
         [self presentViewController:loginController animated:YES completion:nil];
@@ -62,7 +68,6 @@
         [self setupFirebase];
         [self startMonitoringTodoUpdates];
     }
-    
 }
 
 -(void)setupFirebase {
@@ -79,20 +84,21 @@
     
     self.allTodosHandler = [[self.userReference child:@"todos"] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         
-        NSMutableArray *allTodos = [[NSMutableArray alloc] init];
+        self.allTodos = [[NSMutableArray alloc] init];
         
         for (FIRDataSnapshot *child in snapshot.children) {
             NSDictionary *todoData = child.value;
             NSString *todoTitle = todoData[@"title"];
             NSString *todoContent = todoData[@"content"];
             
-            //for lab append new Todo to allTodos array
-            [self.allTodos addObject: todoData];
-            [self.tableView reloadData];
+            Todo *currentTodo = [[Todo alloc]init];
+            currentTodo.title = todoTitle;
+            currentTodo.content = todoContent;
             
             NSLog(@" TodoTtitle: %@ - Content: %@", todoTitle, todoContent);
+            [self.allTodos addObject: currentTodo];
+            [self.tableView reloadData];
         }
-        
     }];
     
 }
@@ -105,44 +111,36 @@
 }
 
 - (IBAction)animateContainer:(id)sender {
-//    [self.containerView layoutIfNeeded];
-//    
-//    if (_containerView.isHidden == YES) {
-//        self.heightConstraint.constant = 160;
-//        
-//        [UIView animateWithDuration:1.0 animations:^{
-//            self.heightConstraint.constant = 160;
-//            [self.containerView layoutIfNeeded];
-//        }];
-//        
-//    } else {
-////        _containerView.isHidden == YES;
-//        self.heightConstraint.constant = 0;
-//        
-//        [UIView animateWithDuration:1.0 animations:^{
-//            [self.containerView layoutIfNeeded];
-//        }];
-//    }
   
-    [self.childViewControllers[0] view].hidden = ![self.childViewControllers[0] view].hidden;
+//    [self.childViewControllers[0] view].hidden = ![self.childViewControllers[0] view].hidden;
+
+    
+    if (self.heightConstraint.constant == kOpenConstraint) {
+        self.heightConstraint.constant = kClosedConstraint;
+    } else {
+        self.heightConstraint.constant = kOpenConstraint;
+    }
+    
+    [UIView animateWithDuration: 1.0 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    NSLog(@"Numbers in list: %lu", (unsigned long)self.allTodos.count);
     return [self.allTodos count];
 }
 
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    TodoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    NSDictionary *currentToDo = self.allTodos[indexPath.row];
-    NSString *todoTitle = currentToDo[@"title"];
-    NSString *todoContent = currentToDo[@"content"];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"to do: %@, this: %@", todoTitle, todoContent];
+    Todo *currentTodo = self.allTodos[indexPath.row];
+    cell.titleLabel.text = currentTodo.title;
+    cell.contentLabel.text = currentTodo.content;
     
     return cell;
-    
 }
 
 

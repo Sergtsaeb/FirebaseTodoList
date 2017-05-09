@@ -33,6 +33,7 @@
 		C0DEA21C1EC248B40002DD02 /* TVHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DEA21B1EC248B40002DD02 /* TVHomeViewController.m */; };
 		C0DEA21D1EC249DC0002DD02 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DEA2001EC2450F0002DD02 /* Todo.m */; };
 		C0DEA21E1EC249DD0002DD02 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DEA2001EC2450F0002DD02 /* Todo.m */; };
+		C0DEA2211EC26A7E0002DD02 /* TodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DEA2201EC26A7E0002DD02 /* TodoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		C0DEA2161EC246C20002DD02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0DEA21A1EC248B40002DD02 /* TVHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVHomeViewController.h; sourceTree = "<group>"; };
 		C0DEA21B1EC248B40002DD02 /* TVHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVHomeViewController.m; sourceTree = "<group>"; };
+		C0DEA21F1EC26A7D0002DD02 /* TodoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoCell.h; sourceTree = "<group>"; };
+		C0DEA2201EC26A7E0002DD02 /* TodoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +191,8 @@
 				C0DEA1AB1EC0DE690002DD02 /* AppDelegate.m */,
 				C0DEA1AD1EC0DE690002DD02 /* ViewController.h */,
 				C0DEA1AE1EC0DE690002DD02 /* ViewController.m */,
+				C0DEA21F1EC26A7D0002DD02 /* TodoCell.h */,
+				C0DEA2201EC26A7E0002DD02 /* TodoCell.m */,
 				C0DEA1FF1EC2450F0002DD02 /* Todo.h */,
 				C0DEA2001EC2450F0002DD02 /* Todo.m */,
 				C0DEA1B01EC0DE690002DD02 /* Main.storyboard */,
@@ -495,6 +500,7 @@
 				C0DEA1AC1EC0DE690002DD02 /* AppDelegate.m in Sources */,
 				C0DEA1C51EC10E630002DD02 /* NewTodoViewController.m in Sources */,
 				C0DEA1A91EC0DE690002DD02 /* main.m in Sources */,
+				C0DEA2211EC26A7E0002DD02 /* TodoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

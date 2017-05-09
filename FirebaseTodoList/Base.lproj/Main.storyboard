@@ -36,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="211" width="375" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="4Sw-Gs-gj4" detailTextLabel="X99-Kk-oqZ" style="IBUITableViewCellStyleSubtitle" id="CMi-bd-y9T">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="4Sw-Gs-gj4" detailTextLabel="X99-Kk-oqZ" style="IBUITableViewCellStyleSubtitle" id="CMi-bd-y9T" customClass="TodoCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMi-bd-y9T" id="Bz1-OZ-pcV">
@@ -50,8 +50,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X99-Kk-oqZ">
-                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X99-Kk-oqZ">
+                                                    <rect key="frame" x="15" y="25.5" width="43.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -59,6 +59,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="X99-Kk-oqZ" id="OTq-L6-bpN"/>
+                                            <outlet property="titleLabel" destination="4Sw-Gs-gj4" id="G20-Q9-6xj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -79,13 +83,13 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f34-8d-NST">
                                 <rect key="frame" x="16" y="10" width="46" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log O"/>
+                                <state key="normal" title="logout"/>
                                 <connections>
                                     <action selector="logoutPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ufu-YR-6oH"/>
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="8k1-XC-LKo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8k1-XC-LKo">
                             <connections>
                                 <action selector="animateContainer:" destination="BYZ-38-t0r" id="so7-pE-up1"/>
                             </connections>
@@ -99,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="780" y="78.710644677661179"/>
+            <point key="canvasLocation" x="529" y="79"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="eGh-iD-lfH">
@@ -172,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1WY-Mi-Opb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44" y="755.17241379310349"/>
+            <point key="canvasLocation" x="44" y="818"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="741-je-7Ja">
@@ -251,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCY-u4-33u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1504.8" y="-154.72263868065968"/>
+            <point key="canvasLocation" x="1011" y="-142"/>
         </scene>
     </scenes>
 </document>
