@@ -13,14 +13,17 @@
 @import FirebaseAuth;
 @import Firebase;
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property(strong, nonatomic) FIRDatabaseReference *userReference;
 @property(strong, nonatomic) FIRUser *currentuser;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic) FIRDatabaseHandle allTodosHandler;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
+
+@property(strong, nonatomic) NSMutableArray *allTodos;
 
 
 @end
@@ -30,7 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -78,14 +82,13 @@
         NSMutableArray *allTodos = [[NSMutableArray alloc] init];
         
         for (FIRDataSnapshot *child in snapshot.children) {
-            
             NSDictionary *todoData = child.value;
-            
             NSString *todoTitle = todoData[@"title"];
             NSString *todoContent = todoData[@"content"];
             
             //for lab append new Todo to allTodos array
-            [allTodos addObject: child];
+            [self.allTodos addObject: todoData];
+            [self.tableView reloadData];
             
             NSLog(@" TodoTtitle: %@ - Content: %@", todoTitle, todoContent);
         }
@@ -102,19 +105,44 @@
 }
 
 - (IBAction)animateContainer:(id)sender {
-    [self.containerView layoutIfNeeded];
-    
-    [UIView animateWithDuration:1.0 animations:^{
-        // Make all constraint changes here
-        
-        
-        self.heightConstraint = 0;
-        
-        [self.containerView layoutIfNeeded];
-        
-    }];
-    
+//    [self.containerView layoutIfNeeded];
+//    
+//    if (_containerView.isHidden == YES) {
+//        self.heightConstraint.constant = 160;
+//        
+//        [UIView animateWithDuration:1.0 animations:^{
+//            self.heightConstraint.constant = 160;
+//            [self.containerView layoutIfNeeded];
+//        }];
+//        
+//    } else {
+////        _containerView.isHidden == YES;
+//        self.heightConstraint.constant = 0;
+//        
+//        [UIView animateWithDuration:1.0 animations:^{
+//            [self.containerView layoutIfNeeded];
+//        }];
+//    }
+  
+    [self.childViewControllers[0] view].hidden = ![self.childViewControllers[0] view].hidden;
+}
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.allTodos count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    NSDictionary *currentToDo = self.allTodos[indexPath.row];
+    NSString *todoTitle = currentToDo[@"title"];
+    NSString *todoContent = currentToDo[@"content"];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"to do: %@, this: %@", todoTitle, todoContent];
+    
+    return cell;
+    
 }
 
 
