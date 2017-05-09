@@ -40,8 +40,9 @@ static CGFloat const kOpenConstraint = 150.0;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.editing = true;
     
-    self.heightConstraint.constant = 0;
+    self.heightConstraint.constant = kClosedConstraint;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -143,6 +144,27 @@ static CGFloat const kOpenConstraint = 150.0;
     return cell;
 }
 
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return true;
+}
+
+//-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    return UITableViewCellEditingStyleNone;
+//}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [_allTodos removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+
+}
 
 
 @end

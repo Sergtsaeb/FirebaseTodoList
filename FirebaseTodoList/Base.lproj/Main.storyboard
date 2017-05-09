@@ -79,11 +79,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TODO LIST" id="Q2Y-i9-eG8">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="kC1-nj-Y9p">
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="kC1-nj-Y9p">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f34-8d-NST">
                                 <rect key="frame" x="16" y="10" width="46" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="logout"/>
+                                <state key="normal" title="Break"/>
                                 <connections>
                                     <action selector="logoutPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ufu-YR-6oH"/>
                                 </connections>
@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="529" y="79"/>
+            <point key="canvasLocation" x="711" y="79"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="eGh-iD-lfH">
@@ -255,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCY-u4-33u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011" y="-142"/>
+            <point key="canvasLocation" x="1399" y="-154"/>
         </scene>
     </scenes>
 </document>
