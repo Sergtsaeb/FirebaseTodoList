@@ -10,10 +10,10 @@
 #import "TodoRowController.h"
 #import "Todo.h"
 @import WatchKit;
-
+@import WatchConnectivity;
 #import "Todo.h"
 
-@interface InterfaceController () <WKExtensionDelegate>
+@interface InterfaceController () <WKExtensionDelegate, WCSessionDelegate>
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceTable *table;
 
@@ -28,7 +28,6 @@
     [super awakeWithContext:context];
     [self setupTable];
 
-    // Configure interface objects here.
 }
 
 -(NSArray<Todo *> *)allTodos {
@@ -61,13 +60,17 @@
 }
 
 - (void)willActivate {
-    // This method is called when watch view controller is about to be visible to user
     [super willActivate];
+    
+    [[WCSession defaultSession] setDelegate:self];
+    [[WCSession defaultSession] activateSession];
+    
+    
 }
 
 - (void)didDeactivate {
-    // This method is called when watch view controller is no longer visible
     [super didDeactivate];
+    
 }
 
 -(void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
