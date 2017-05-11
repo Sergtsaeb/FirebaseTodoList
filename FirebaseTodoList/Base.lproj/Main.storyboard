@@ -79,11 +79,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TODO LIST" id="Q2Y-i9-eG8">
-                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="kC1-nj-Y9p">
+                        <barButtonItem key="leftBarButtonItem" title="Item" width="29" style="plain" id="kC1-nj-Y9p">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f34-8d-NST">
                                 <rect key="frame" x="16" y="10" width="46" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Break"/>
+                                <state key="normal" title="LOG OUT"/>
                                 <connections>
                                     <action selector="logoutPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ufu-YR-6oH"/>
                                 </connections>

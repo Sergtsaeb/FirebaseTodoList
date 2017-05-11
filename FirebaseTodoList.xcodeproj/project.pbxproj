@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		80C0FA12ED0D27230DF9EF13 /* libPods-FirebaseTodoList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9403BBEEF34410689A4AE7 /* libPods-FirebaseTodoList.a */; };
+		C088B3821EC474A0007A383E /* finish,done.json in Resources */ = {isa = PBXBuildFile; fileRef = C088B3811EC474A0007A383E /* finish,done.json */; };
 		C0DEA1A91EC0DE690002DD02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DEA1A81EC0DE690002DD02 /* main.m */; };
 		C0DEA1AC1EC0DE690002DD02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DEA1AB1EC0DE690002DD02 /* AppDelegate.m */; };
 		C0DEA1AF1EC0DE690002DD02 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DEA1AE1EC0DE690002DD02 /* ViewController.m */; };
@@ -34,6 +35,7 @@
 		C0DEA21D1EC249DC0002DD02 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DEA2001EC2450F0002DD02 /* Todo.m */; };
 		C0DEA21E1EC249DD0002DD02 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DEA2001EC2450F0002DD02 /* Todo.m */; };
 		C0DEA2211EC26A7E0002DD02 /* TodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DEA2201EC26A7E0002DD02 /* TodoCell.m */; };
+		C0DEA2251EC384380002DD02 /* FirebaseAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DEA2241EC384380002DD02 /* FirebaseAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,7 @@
 		0D96749A73F60755CBDABB29 /* Pods-FirebaseTodoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTodoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseTodoList/Pods-FirebaseTodoList.debug.xcconfig"; sourceTree = "<group>"; };
 		66B79E487DDE11E78C66F314 /* Pods-FirebaseTodoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTodoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseTodoList/Pods-FirebaseTodoList.release.xcconfig"; sourceTree = "<group>"; };
 		BE9403BBEEF34410689A4AE7 /* libPods-FirebaseTodoList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FirebaseTodoList.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C088B3811EC474A0007A383E /* finish,done.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "finish,done.json"; sourceTree = "<group>"; };
 		C0DEA1A41EC0DE690002DD02 /* FirebaseTodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseTodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0DEA1A81EC0DE690002DD02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C0DEA1AA1EC0DE690002DD02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -123,9 +126,19 @@
 		C0DEA21B1EC248B40002DD02 /* TVHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVHomeViewController.m; sourceTree = "<group>"; };
 		C0DEA21F1EC26A7D0002DD02 /* TodoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoCell.h; sourceTree = "<group>"; };
 		C0DEA2201EC26A7E0002DD02 /* TodoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoCell.m; sourceTree = "<group>"; };
+		C0DEA2221EC382E80002DD02 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
+		C0DEA2231EC384380002DD02 /* FirebaseAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseAPI.h; sourceTree = "<group>"; };
+		C0DEA2241EC384380002DD02 /* FirebaseAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		77AB456E9D75E7931CC39E1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0DEA1A11EC0DE690002DD02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,6 +200,7 @@
 		C0DEA1A61EC0DE690002DD02 /* FirebaseTodoList */ = {
 			isa = PBXGroup;
 			children = (
+				C088B3811EC474A0007A383E /* finish,done.json */,
 				C0DEA1AA1EC0DE690002DD02 /* AppDelegate.h */,
 				C0DEA1AB1EC0DE690002DD02 /* AppDelegate.m */,
 				C0DEA1AD1EC0DE690002DD02 /* ViewController.h */,
@@ -245,6 +259,9 @@
 		C0DEA2071EC246C20002DD02 /* tvOSTodoList */ = {
 			isa = PBXGroup;
 			children = (
+				C0DEA2221EC382E80002DD02 /* Credentials.h */,
+				C0DEA2231EC384380002DD02 /* FirebaseAPI.h */,
+				C0DEA2241EC384380002DD02 /* FirebaseAPI.m */,
 				C0DEA21A1EC248B40002DD02 /* TVHomeViewController.h */,
 				C0DEA21B1EC248B40002DD02 /* TVHomeViewController.m */,
 				C0DEA20B1EC246C20002DD02 /* AppDelegate.h */,
@@ -304,6 +321,7 @@
 			buildPhases = (
 				C0DEA1C61EC233B10002DD02 /* Resources */,
 				C0DEA1E81EC233B10002DD02 /* Embed App Extensions */,
+				77AB456E9D75E7931CC39E1F /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -406,6 +424,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C088B3821EC474A0007A383E /* finish,done.json in Resources */,
 				C0DEA1B71EC0DE690002DD02 /* LaunchScreen.storyboard in Resources */,
 				C0DEA1BF1EC0DFF00002DD02 /* GoogleService-Info.plist in Resources */,
 				C0DEA1B41EC0DE690002DD02 /* Assets.xcassets in Resources */,
@@ -520,6 +539,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0DEA20D1EC246C20002DD02 /* AppDelegate.m in Sources */,
+				C0DEA2251EC384380002DD02 /* FirebaseAPI.m in Sources */,
 				C0DEA20A1EC246C20002DD02 /* main.m in Sources */,
 				C0DEA21C1EC248B40002DD02 /* TVHomeViewController.m in Sources */,
 				C0DEA21E1EC249DD0002DD02 /* Todo.m in Sources */,
@@ -676,6 +696,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P42QZ5498J;
 				INFOPLIST_FILE = FirebaseTodoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sergtsaeb.FirebaseTodoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -689,6 +710,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P42QZ5498J;
 				INFOPLIST_FILE = FirebaseTodoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sergtsaeb.FirebaseTodoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -819,6 +841,7 @@
 				C0DEA1E71EC233B10002DD02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0DEA1E91EC233B10002DD02 /* Build configuration list for PBXNativeTarget "WatchKitTodoList" */ = {
 			isa = XCConfigurationList;
@@ -827,6 +850,7 @@
 				C0DEA1EB1EC233B10002DD02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0DEA2171EC246C20002DD02 /* Build configuration list for PBXNativeTarget "tvOSTodoList" */ = {
 			isa = XCConfigurationList;
@@ -835,6 +859,7 @@
 				C0DEA2191EC246C20002DD02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

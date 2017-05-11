@@ -8,10 +8,12 @@
 
 #import "InterfaceController.h"
 #import "TodoRowController.h"
+#import "Todo.h"
+@import WatchKit;
 
 #import "Todo.h"
 
-@interface InterfaceController ()
+@interface InterfaceController () <WKExtensionDelegate>
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceTable *table;
 
@@ -56,7 +58,6 @@
         [rowController.titleLabel setText:self.allTodos[i].title];
         [rowController.contentLabel setText:self.allTodos[i].content];
     }
-    
 }
 
 - (void)willActivate {
@@ -71,11 +72,12 @@
 
 -(void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
     
+//    NSDictionary *currentTodo = @"%@", self.allTodos[indexPath].title
+    
     
 }
 
 - (IBAction)newTodoPressed {
-    
     NSArray *suggestions = @[@"Sup", @"Homez", @"FreshPrince"];
     
     [self presentTextInputControllerWithSuggestions:suggestions allowedInputMode:WKTextInputModeAllowEmoji completion:^(NSArray * _Nullable results) {

@@ -30,7 +30,6 @@ static CGFloat const kOpenConstraint = 150.0;
 
 @property(strong, nonatomic) NSMutableArray *allTodos;
 
-
 @end
 
 @implementation ViewController
@@ -41,6 +40,7 @@ static CGFloat const kOpenConstraint = 150.0;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.editing = true;
+    self.allTodos = _allTodos;
     
     self.heightConstraint.constant = kClosedConstraint;
 }
@@ -64,7 +64,6 @@ static CGFloat const kOpenConstraint = 150.0;
         LoginViewController *loginController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         
         [self presentViewController:loginController animated:YES completion:nil];
-        
     } else {
         [self setupFirebase];
         [self startMonitoringTodoUpdates];
@@ -72,12 +71,9 @@ static CGFloat const kOpenConstraint = 150.0;
 }
 
 -(void)setupFirebase {
-    
     FIRDatabaseReference *databaseReference = [[FIRDatabase database] reference];
     self.currentuser = [[FIRAuth auth] currentUser];
-    
     self.userReference = [[databaseReference child:@"users"] child:self.currentuser.uid];
-    
     NSLog(@"The user reference yo: %@", self.userReference);
 }
 
@@ -112,10 +108,6 @@ static CGFloat const kOpenConstraint = 150.0;
 }
 
 - (IBAction)animateContainer:(id)sender {
-  
-//    [self.childViewControllers[0] view].hidden = ![self.childViewControllers[0] view].hidden;
-
-    
     if (self.heightConstraint.constant == kOpenConstraint) {
         self.heightConstraint.constant = kClosedConstraint;
     } else {
@@ -128,13 +120,11 @@ static CGFloat const kOpenConstraint = 150.0;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    NSLog(@"Numbers in list: %lu", (unsigned long)self.allTodos.count);
     return [self.allTodos count];
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     TodoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     Todo *currentTodo = self.allTodos[indexPath.row];
@@ -148,10 +138,13 @@ static CGFloat const kOpenConstraint = 150.0;
     return true;
 }
 
-//-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    return UITableViewCellEditingStyleNone;
-//}
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleNone;
+}
+
+- (BOOL)tableView:(UITableView *)tableview shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -163,7 +156,6 @@ static CGFloat const kOpenConstraint = 150.0;
 
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     
-
 }
 
 

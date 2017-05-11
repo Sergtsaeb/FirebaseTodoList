@@ -9,5 +9,6 @@ target 'FirebaseTodoList' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'lottie-ios'
 
 end
