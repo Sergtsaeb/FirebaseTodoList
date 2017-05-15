@@ -49,6 +49,7 @@ static CGFloat const kOpenConstraint = 150.0;
     [super viewDidAppear:animated];
     
     [self checkUserStatus];
+    [self setupFirebase];
 }
 
 
@@ -104,7 +105,9 @@ static CGFloat const kOpenConstraint = 150.0;
     NSError *signoutError;
     [[FIRAuth auth] signOut: &signoutError];
     
+    [self.allTodos removeAllObjects];
     [self checkUserStatus];
+    [self.tableView reloadData];
 }
 
 - (IBAction)animateContainer:(id)sender {
@@ -126,6 +129,9 @@ static CGFloat const kOpenConstraint = 150.0;
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TodoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+            }
     
     Todo *currentTodo = self.allTodos[indexPath.row];
     cell.titleLabel.text = currentTodo.title;

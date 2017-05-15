@@ -35,6 +35,12 @@
     [[newTodoReference child:@"title"] setValue:self.titleTextField.text];
     [[newTodoReference child:@"content"] setValue:self.contentTextField.text];
     
+    [[newTodoReference child:@"completed"] setValue:@0];
+    [[newTodoReference child:@"key"] setValue:newTodoReference.key];
+    
+    self.titleTextField.text = nil;
+    self.contentTextField.text = nil;
+    
 }
 
 

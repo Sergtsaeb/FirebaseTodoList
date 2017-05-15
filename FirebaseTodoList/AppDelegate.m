@@ -26,6 +26,8 @@ typedef void(^FirebaseCallback)(NSArray *allTodos);
     [[WCSession defaultSession] setDelegate:self];
     [[WCSession defaultSession] activateSession];
     
+
+    
     return YES;
 }
 
@@ -49,7 +51,6 @@ typedef void(^FirebaseCallback)(NSArray *allTodos);
             callback(todoDictionaries.copy);
         });
     }];
-    
 }
 
 
@@ -79,5 +80,11 @@ typedef void(^FirebaseCallback)(NSArray *allTodos);
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message replyHandler:(void (^)(NSDictionary<NSString *,id> * _Nonnull))replyHandler {
+    
+    [self startMonitoringTodoUpdates:^(NSArray *allTodos) {
+        replyHandler(@{@"todos": allTodos});
+    }];
+}
 
 @end

@@ -21,30 +21,15 @@
 
 @end
 
-
 @implementation InterfaceController
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
+    
+        [self.titleLabel setText:context[@"title"]];
+        [self.contentLabel setText:context[@"content"]];
+    
     [self setupTable];
-
-}
-
--(NSArray<Todo *> *)allTodos {
-    Todo *firstTodo = [[Todo alloc] init];
-    firstTodo.title = @"First Todo";
-    firstTodo.content = @"This is a todo.";
-    
-    Todo *secondTodo = [[Todo alloc] init];
-    secondTodo.title = @"Second Todo";
-    secondTodo.content = @"This is a todo.";
-    
-    Todo *thirdTodo = [[Todo alloc] init];
-    thirdTodo.title = @"Third Todo";
-    thirdTodo.content = @"This is a todo.";
-    
-    return @[firstTodo, secondTodo, thirdTodo];
-    
 }
 
 -(void) setupTable {
@@ -65,7 +50,28 @@
     [[WCSession defaultSession] setDelegate:self];
     [[WCSession defaultSession] activateSession];
     
-    
+    //The message parameter is where you would want to hand the ios app Todo data ro save to Firebase
+    [[WCSession defaultSession] sendMessage:@{} replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
+        
+        NSArray *todoDictionaries = replyMessage[@"todos"];
+        
+        NSMutableArray *allTodos = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *todoObject in todoDictionaries) {
+            Todo *newTodo = [[Todo alloc] init];
+            newTodo.title = todoObject[@"title"];
+            newTodo.content = todoObject[@"content"];
+            //assign any other values here
+            
+            [allTodos addObject:newTodo];
+            
+        }
+        self.allTodos = allTodos.copy;
+        [self setupTable];
+        
+    } errorHandler:^(NSError * _Nonnull error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
 }
 
 - (void)didDeactivate {
@@ -75,7 +81,9 @@
 
 -(void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
     
-//    NSDictionary *currentTodo = @"%@", self.allTodos[indexPath].title
+    NSDictionary *todoDictionary = @{@"title": self.allTodos[rowIndex].title, @"content": self.allTodos[rowIndex].content};
+    
+    
     
     
 }
