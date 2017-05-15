@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+    </dependencies>
+    <scenes>
+        <!--InterfaceController-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="InterfaceController" id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <table alignment="left" id="1xY-Ft-1pX">
+                            <items>
+                                <tableRow identifier="TodoRowController" id="XeO-g7-ep0" customClass="TodoRowController">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="rgJ-o7-k97">
+                                        <items>
+                                            <label alignment="left" text="title" id="9RL-yD-bWZ">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                            <label alignment="left" text="content" numberOfLines="0" id="IEF-du-43y"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="contentLabel" destination="IEF-du-43y" id="oTH-eV-iw4"/>
+                                        <outlet property="titleLabel" destination="9RL-yD-bWZ" id="D6F-bh-sel"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="1" alignment="left" title="new todo" id="eqj-jf-dyj">
+                            <connections>
+                                <action selector="newTodoPressed" destination="AgC-eL-Hgc" id="vqq-QV-BHb"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="1xY-Ft-1pX" id="slC-f4-gYx"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="46" y="46"/>
+        </scene>
+    </scenes>
+</document>
