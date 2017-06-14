@@ -86,8 +86,13 @@ static CGFloat const kOpenConstraint = 150.0;
         
         for (FIRDataSnapshot *child in snapshot.children) {
             NSDictionary *todoData = child.value;
+            
+//            if (todoData[@"completed"] isEqual:@1) {
+//            }
+            
             NSString *todoTitle = todoData[@"title"];
             NSString *todoContent = todoData[@"content"];
+            
             
             Todo *currentTodo = [[Todo alloc]init];
             currentTodo.title = todoTitle;
@@ -130,7 +135,7 @@ static CGFloat const kOpenConstraint = 150.0;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TodoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+                cell = [[TodoCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
             }
     
     Todo *currentTodo = self.allTodos[indexPath.row];

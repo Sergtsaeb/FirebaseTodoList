@@ -26,8 +26,8 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
-        [self.titleLabel setText:context[@"title"]];
-        [self.contentLabel setText:context[@"content"]];
+//        [self.titleLabel setText:context[@"title"]];
+//        [self.contentLabel setText:context[@"content"]];
     
     [self setupTable];
 }
