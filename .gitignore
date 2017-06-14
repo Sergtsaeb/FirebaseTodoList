@@ -151,7 +151,7 @@ playground.xcworkspace
 ## Various settings
 
 ## Other
-/Credentials.h
+*/tvOSTodoList/Credentials.h
 
 ### Xcode Patch ###
 *.xcodeproj/*
